@@ -4,8 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Booster Pack Creator</title>
+
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BS ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS PROPIO (debe cargarse después de BootStrap para que sobrescriba) -->
+     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    
+    <!-- MENU ARRIBA -->
+    <nav id = "menu">
+        <div class="d-grid gap-2 d-md-block" id="btnCloseMenu"></div>
+            <button class="btn btn-outline-dark">
+                <a href="/index.html">INICIO</a>
+            </button>
+            <button class="btn btn-outline-dark">
+                <a href="/createPack.html">ESCOGER PACK</a>
+            </button>
+            <button class="btn btn-outline-dark">
+                <a href="/pag404.html">BARAJA</a>
+            </button>
+            <button class="btn btn-outline-dark">
+                <a href="/pag404.html">TIENDA</a>
+            </button>
+            <button class="btn btn-outline-dark">
+                <a href="/pag404.html">BARAJA</a>
+            </button>
+            <button class="btn btn-outline-dark">
+                <a href="/pag404.html">CONTACTO</a>
+            </button>
+        <div id="btnOpenMenu"></div>
+    </nav>
+
+
+   
+
+    <!-- INICIO -->
+    <header>
+       <!-- imagen del logo de pokemon -->
+    </header>
+
+    <div id="game-text">
+        <p>The Pokémon TCG API is organized around REST. Our API has predictable resource-oriented URLs, accepts JSON encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
+        You can use the Pokémon TCG API without registering for an API key, although your limits are far less than if you had an API key. The API key you use to authenticate the request determines your rate limits. Register for an api key at the Developer Portal.
+        </p>
+    </div>
+
+    <!-- Botón GO! -->
+    <div class="button-container">
+        <div class="button" id="goButton">
+            <a href="createPack.html">
+                    <p class="button-text">¡IR!</p>
+            </a>  
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Contacto en:</h3>   
+        <div>
+            <a href='https://www.youtube.com/nintendo' target='_blank'>Youtube</a>
+            <a href='https://x.com/Nintendo' target='_blank'>X</a>
+            <a href='https://www.instagram.com/nintendoes/' target='_blank'>Instagram</a>
+        </div>
+    </footer>
+
+    <!-- JS Bootstrap (opcional, solo si usas componentes JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
