@@ -15,35 +15,41 @@
 </head>
 <body>
     <!-- MENU ARRIBA -->
-    <nav id = "menu">
-        <div class="d-grid gap-2 d-md-block" id="btnCloseMenu"></div>
-            <button class="btn btn-outline-dark">
-                <a href="/index.html">INICIO</a>
-            </button>
-            <button class="btn btn-outline-dark">
-                <a href="/createPack.html">ESCOGER PACK</a>
-            </button>
-            <button class="btn btn-outline-dark">
-                <a href="/pag404.html">BARAJA</a>
-            </button>
-            <button class="btn btn-outline-dark">
-                <a href="/pag404.html">TIENDA</a>
-            </button>
-            <button class="btn btn-outline-dark">
-                <a href="/pag404.html">BARAJA</a>
-            </button>
-            <button class="btn btn-outline-dark">
-                <a href="/pag404.html">CONTACTO</a>
-            </button>
-        <div id="btnOpenMenu"></div>
-    </nav>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <button class="btn btn-outline-dark btn-lg" >
+                    <a href="/index.html" class="nav-link">INICIO</a>
+                </button>
+                <button class="btn btn-outline-dark btn-lg">
+                    <a href="/createPack.html" class="nav-link">ESCOGER PACK</a>
+                </button>
+                <button class="btn btn-outline-dark btn-lg">
+                    <a href="/pag404.html" class="nav-link">BARAJA</a>
+                </button>
+                <button class="btn btn-outline-dark btn-lg">
+                    <a href="/pag404.html" class="nav-link">TIENDA</a>
+                </button>
+                <button class="btn btn-outline-dark btn-lg">
+                    <a href="/pag404.html" class="nav-link">BARAJA</a>
+                </button>
+                <button class="btn btn-outline-dark btn-lg">
+                    <a href="/pag404.html" class="nav-link">CONTACTO</a>
+                </button>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
    
 
     <!-- INICIO -->
     <header>
-       <!-- imagen del logo de pokemon -->
+       <!-- Colocar imagen del logo de pokemon -->
     </header>
 
     <div id="game-text">
@@ -53,13 +59,9 @@
     </div>
 
     <!-- Botón GO! -->
-    <div class="button-container">
-        <div class="button" id="goButton">
-            <a href="createPack.html">
-                    <p class="button-text">¡IR!</p>
-            </a>  
-        </div>
-    </div>
+    <button class="btn btn-dark btn-lg">
+        <a href="/createPack.html" class="nav-link">¡IR!</a>
+    </button>
 
 
 
