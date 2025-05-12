@@ -32,6 +32,16 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed; 
 }
+ h1{
+color: white;
+  font-size: 5rem;
+  z-index: 2;
+}
+p{
+  color: black;
+    font-size: 1.5rem;
+    z-index: 2;
+  }
 
 .pokeball-container {
   position: fixed;
@@ -63,13 +73,15 @@ footer {
   width: 100%; 
   box-sizing: border-box; 
   margin-top: auto; 
+  z-index: 1;
 }
 
 .footer-content {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between; /
+  justify-content: space-between; 
+  z-index: auto;
 }
 
 .footer-left {
@@ -138,10 +150,6 @@ footer a:hover {
   flex-direction: row !important; /* Asegura que los botones estén en fila en pantallas grandes */
 }
 
-.navbar-nav .nav-item {
-  /* No necesitamos estilos específicos para los items aquí */
-}
-
 .navbar-dark .navbar-nav .nav-link {
   color: black;
   background-color: white;
@@ -182,4 +190,8 @@ footer a:hover {
   .navbar-collapse {
       justify-content: center; 
   }
+}
+
+.pokemon-logo-container {
+  z-index: 2; 
 }
