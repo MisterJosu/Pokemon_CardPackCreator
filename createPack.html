@@ -6,7 +6,7 @@
   <title>Escoge tu pack</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- BS ICONS -->
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
@@ -39,11 +39,13 @@
       </div>
     </div>
   </nav>
-  <!-- Espacio para que el contenido no quede oculto tras el navbar -->
+  <!-- Espacio para navbar fija -->
   <div class="spacer-nav"></div>
 
-  <!-- SECCIÓN DE SELECCIÓN -->
-  <section class="container text-center mb-5">
+  <!-- SECCIÓN DE SELECCIÓN (centrada) -->
+  <section id="choose-pack"
+           class="container d-flex flex-column justify-content-center align-items-center text-center mb-5"
+           style="min-height: calc(40vh - 20px);">
     <h2 class="mb-4">Escoge tu sobre</h2>
 
     <!-- Toggle de opciones -->
@@ -57,7 +59,6 @@
     <!-- Panel de opciones -->
     <div class="collapse" id="packOptions">
       <div class="card card-body d-inline-block text-start bg-light p-4 rounded">
-        <!-- Radios -->
         <div class="form-check mb-2">
           <input class="form-check-input" type="radio" name="packType" id="packOriginal" value="original" checked>
           <label class="form-check-label" for="packOriginal">Original (10 cartas)</label>
@@ -74,8 +75,6 @@
           <input class="form-check-input" type="radio" name="packType" id="packUltra" value="ultra">
           <label class="form-check-label" for="packUltra">Ultra (10 holográficas)</label>
         </div>
-
-        <!-- Botón Abrir sobre -->
         <div class="text-center">
           <button id="reload-btn" class="btn btn-dark btn-lg px-5">Abrir sobre</button>
         </div>
@@ -93,12 +92,12 @@
     </div>
   </section>
 
-  <!-- POKEBALL DECORATIVA -->
+  <!-- Pokéball decorativa -->
   <div class="pokeball-container">
     <img src="media/pokeball.png" alt="Pokéball">
   </div>
 
-  <!-- JS de Bootstrap y pack.js -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/pack.js" defer></script>
 </body>
