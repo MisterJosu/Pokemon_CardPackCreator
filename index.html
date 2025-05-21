@@ -1,108 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon Booster Pack Creator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokemon Booster Pack Creator</title>
 
-    <!-- CSS Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- BS ICONS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- CSS PROPIO (debe cargarse después de BootStrap para que sobrescriba) -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- CSS Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom CSS (must come after Bootstrap) -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Fuente Jaro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
-
-
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- MENU ARRIBA -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-      <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                  <li class="nav-item mx-1"><a href="index.html" class="nav-link capsule-button">INICIO</a></li>
-                  <li class="nav-item mx-1"><a href="createPack.html" class="nav-link capsule-button">ESCOGER PACK</a></li>
-                  <li class="nav-item mx-1"><a href="pag404.html" class="nav-link capsule-button">BARAJA</a></li>
-                  <li class="nav-item mx-1"><a href="pag404.html" class="nav-link capsule-button">TIENDA</a></li>
-                  <li class="nav-item mx-1"><a href="pag404.html" class="nav-link capsule-button">CONTACTO</a></li>
-              </ul>
-          </div>
+
+  <!-- MENU ARRIBA -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a href="index.html"      class="nav-link capsule-button">INICIO</a></li>
+          <li class="nav-item"><a href="createPack.html" class="nav-link capsule-button">ESCOGER PACK</a></li>
+          <li class="nav-item"><a href="pag404.html"     class="nav-link capsule-button">BARAJA</a></li>
+          <li class="nav-item"><a href="pag404.html"     class="nav-link capsule-button">TIENDA</a></li>
+          <li class="nav-item"><a href="pag404.html"     class="nav-link capsule-button">CONTACTO</a></li>
+        </ul>
       </div>
-      <div class="pokeball-container">
-          <img src="media/pokeball.png" alt="Pokéball">
-      </div>
+    </div>
   </nav>
 
-    
+  <!-- Espacio para navbar fija -->
+  <div class="spacer-nav"></div>
 
-    <!-- INICIO -->
-    <header class="text-center my-5">
-      <div class="pokemon-logo-container">
-        <img src="media/Logo_Pokémon_Trading_Card_Game.png" alt="Logo de Pokémon" style="max-width: 500px; height: auto;">
+  <!-- INICIO -->
+  <header class="text-center my-5">
+    <div class="pokemon-logo-container">
+      <img src="media/Logo_Pokémon_Trading_Card_Game.png"
+           alt="Logo de Pokémon"
+           style="max-width:500px; height:auto;">
+    </div>
+    <h1>BOOSTER PACK CREATOR</h1>
+    <p>
+      ¡Bienvenidos entrenadores Pokémon! Preparaos para ampliar vuestra colección con este creador
+      de paquetes personalizados. Simplemente haz clic en el botón de abajo para empezar.
+    </p>
+  </header>
+
+  <!-- CARRUSEL -->
+  <div class="container my-5">
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carousel-track">
+        <!-- js/script.js inyectará aquí las cartas -->
       </div>
-      
-       <h1>BOOSTER PACK CREATOR</h1>
-       <p>¡Bienvenidos entrenadores Pokemon! Preparaos para  ampliar vuestra colección pokemon con este creador de paquetes personalizados. Tan solo tienes que clickar el boton de abajo para comenzar!
-      </p>
-    </header>
+    </div>
+  </div>
 
-    <!-- CARRUSEL -->
-      <div class="container my-5">
-        <div class="carousel-wrapper">
-          <div class="carousel-track" id="carousel-track">
-      
-            <!-- 5 imágenes originales -->
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1015/400/600" alt="Imagen 1"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1016/400/600" alt="Imagen 2"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1018/400/600" alt="Imagen 3"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1019/400/600" alt="Imagen 4"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1020/400/600" alt="Imagen 5"></div>
-      
-            <!-- Duplicadas para bucle perfecto -->
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1015/400/600" alt="Imagen 1"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1016/400/600" alt="Imagen 2"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1018/400/600" alt="Imagen 3"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1019/400/600" alt="Imagen 4"></div>
-            <div class="carousel-item-custom"><img src="https://picsum.photos/id/1020/400/600" alt="Imagen 5"></div>
-      
-          </div>
+  <!-- Botón GO! centrado -->
+  <div class="text-center my-4">
+    <a href="createPack.html" class="btn btn-dark btn-lg px-5">¡IR!</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3>Redes sociales</h3>
+        <div class="d-flex gap-3">
+          <a href="https://www.youtube.com/nintendo" target="_blank">Youtube</a>
+          <a href="https://x.com/Nintendo" target="_blank">Twitter</a>
+          <a href="https://www.instagram.com/nintendoes/" target="_blank">Instagram</a>
         </div>
       </div>
-      
-
-
-
-
-    <!-- Botón GO! centrado -->
-    <div class="text-center my-4">
-        <a href="createPack.html" class="btn btn-dark btn-lg px-5">¡IR!</a>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-content">
-          <div class="footer-left">
-              <h3>Redes sociales</h3>
-              <div>
-                  <a href='https://www.youtube.com/nintendo' target='_blank'>Youtube</a>
-                  <a href='https://x.com/Nintendo' target='_blank'>Twitter</a>
-                  <a href='https://www.instagram.com/nintendoes/' target='_blank'>Instagram</a>
-              </div>
-          </div>
-          <div class="footer-right">
-              <div class="image-container">
-                  <img src="media/Logo_Pokémon_Trading_Card_Game.png" alt="Imagen de Nintendo">
-              </div>
-          </div>
+      <div class="footer-right">
+        <div class="image-container">
+          <img src="media/Logo_Pokémon_Trading_Card_Game.png" alt="Logo Pokémon">
+        </div>
       </div>
+    </div>
   </footer>
+
+  <!-- Pokéball decorativa -->
+  <div class="pokeball-container">
+    <img src="media/pokeball.png" alt="Pokéball">
+  </div>
+
+  <!-- JS de Bootstrap y script del carrusel -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
