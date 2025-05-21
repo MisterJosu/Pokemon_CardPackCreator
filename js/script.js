@@ -1,32 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const carouselInner = document.getElementById('carouselInner');
-    const apiUrl = 'https://api.pokemontcg.io/v2/cards?pageSize=5'; // Ejemplo: Obtiene 5 cartas
-  
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        if (data && data.data && data.data.length > 0) {
-          data.data.forEach((card, index) => {
-            const carouselItem = document.createElement('div');
-            carouselItem.classList.add('carousel-item');
-            if (index === 0) {
-              carouselItem.classList.add('active');
-            }
-  
-            const img = document.createElement('img');
-            img.src = card.images.large; // Usa la imagen grande de la carta
-            img.classList.add('d-block', 'w-100');
-            img.alt = card.name;
-  
-            carouselItem.appendChild(img);
-            carouselInner.appendChild(carouselItem);
-          });
-        } else {
-          carouselInner.innerHTML = '<div class="carousel-item active"><p class="text-center">No se encontraron cartas.</p></div>';
-        }
-      })
-      .catch(error => {
-        console.error('Error al obtener los datos de la API:', error);
-        carouselInner.innerHTML = '<div class="carousel-item active"><p class="text-center">Error al cargar las cartas.</p></div>';
-      });
-  });
+
+//CARRUSEL sacar cartas de la API
+async function cargarCartasPokemon() {
+  const track = document.getElementById('carousel-track');
+
+  try {
+    const response = await fetch('https://api.pokemontcg.io/v2/cards?pageSize=50');
+    const data = await response.json();
+    const cartas = data.data;
+
+    // Elegir 6 al azar
+    const cartasAleatorias = cartas.sort(() => 0.5 - Math.random()).slice(0, 6);
+
+    // Duplicamos para bucle infinito
+    const cartasDobles = [...cartasAleatorias, ...cartasAleatorias];
+
+    // Inyectar en el DOM
+    cartasDobles.forEach(carta => {
+      const div = document.createElement('div');
+      div.className = 'carousel-item-custom';
+      div.innerHTML = `<img src="${carta.images.large}" alt="${carta.name}">`;
+      track.appendChild(div);
+    });
+  } catch (error) {
+    console.error('Error al cargar cartas Pokémon:', error);
+  }
+}
+
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', cargarCartasPokemon);
