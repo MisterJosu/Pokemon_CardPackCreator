@@ -44,44 +44,57 @@
   <div class="spacer-nav"></div>
 
   <!-- SECCIÓN DE SELECCIÓN (centrada) -->
-  <section id="choose-pack"
-           class="container d-flex flex-column justify-content-center align-items-center text-center mb-5"
-           style="min-height: calc(40vh - 20px);">
-    <h2 class="mb-4">Escoge tu sobre</h2>
+  <!-- SECCIÓN DE SELECCIÓN (dos columnas) -->
+<section id="choose-pack" class="container my-5">
+  <div class="row align-items-center">
+    
+    <!-- Columna izquierda: opciones -->
+    <div class="col-lg-6 mb-4 mb-lg-0">
+      <h2 class="mb-4 text-center text-lg-start">Escoge tu sobre</h2>
 
-    <!-- Toggle de opciones -->
-    <button class="btn btn-dark capsule-button mb-4"
-            data-bs-toggle="collapse"
-            data-bs-target="#packOptions"
-            aria-expanded="false">
-      Opciones de pack
-    </button>
+      <!-- Botón de opciones -->
+      <div class="text-center text-lg-start">
+        <button class="btn btn-dark capsule-button mb-4"
+                data-bs-toggle="collapse"
+                data-bs-target="#packOptions"
+                aria-expanded="false">
+          Opciones de pack
+        </button>
+      </div>
 
-    <!-- Panel de opciones -->
-    <div class="collapse" id="packOptions">
-      <div class="card card-body d-inline-block text-start bg-light p-4 rounded">
-        <div class="form-check mb-2">
-          <input class="form-check-input" type="radio" name="packType" id="packOriginal" value="original" checked>
-          <label class="form-check-label" for="packOriginal">Original (10 cartas)</label>
-        </div>
-        <div class="form-check mb-2">
-          <input class="form-check-input" type="radio" name="packType" id="packJapanese" value="japanese">
-          <label class="form-check-label" for="packJapanese">Japonés (5 cartas)</label>
-        </div>
-        <div class="form-check mb-2">
-          <input class="form-check-input" type="radio" name="packType" id="packLuxory" value="luxory">
-          <label class="form-check-label" for="packLuxory">Luxory (5 poco comunes + 5 holográficas)</label>
-        </div>
-        <div class="form-check mb-4">
-          <input class="form-check-input" type="radio" name="packType" id="packUltra" value="ultra">
-          <label class="form-check-label" for="packUltra">Ultra (10 holográficas)</label>
-        </div>
-        <div class="text-center">
-          <button id="reload-btn" class="btn btn-dark btn-lg px-5">Abrir sobre</button>
+      <!-- Panel de opciones -->
+      <div class="collapse" id="packOptions">
+        <div class="card card-body bg-light p-4 rounded">
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="packType" id="packOriginal" value="original" checked>
+            <label class="form-check-label" for="packOriginal">Original (10 cartas)</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="packType" id="packJapanese" value="japanese">
+            <label class="form-check-label" for="packJapanese">Japonés (5 cartas)</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="packType" id="packLuxory" value="luxory">
+            <label class="form-check-label" for="packLuxory">Luxory (5 poco comunes + 5 holográficas)</label>
+          </div>
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="radio" name="packType" id="packUltra" value="ultra">
+            <label class="form-check-label" for="packUltra">Ultra (10 holográficas)</label>
+          </div>
+          <div class="text-center">
+            <button id="reload-btn" class="btn btn-dark btn-lg px-5">Abrir sobre</button>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- Columna derecha: imagen -->
+    <div class="col-lg-6 text-center">
+      <img src="media/Sobre_Mew.png" alt="Pack ilustración" class="img-fluid rounded shadow">
+    </div>
+
+  </div>
+</section>
 
   <!-- CONTENEDOR DE CARTAS -->
   <section>

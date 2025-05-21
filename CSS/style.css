@@ -25,7 +25,8 @@ body {
   color: #000;
 }
 
-/* Navbar shared styles */
+
+
 .navbar {
   background-color: transparent !important;
   padding: 1rem 2rem;
@@ -58,12 +59,10 @@ body {
   color: #fff !important;
 }
 
-/* Spacer to offset fixed navbar */
 .spacer-nav {
   height: 80px;
 }
 
-/* Create Pack section */
 #choose-pack {
   padding: 4rem 0;
 }
@@ -94,9 +93,14 @@ body {
   font-size: 1.25rem;
 }
 
-/* Index header */
 .pokemon-logo-container {
   z-index: 2;
+  
+}
+
+.pokemon-logo-container img{
+  max-width: 100%;
+  height: auto;
 }
 
 h1 {
@@ -110,7 +114,6 @@ p {
   z-index: 2;
 }
 
-/* Pokeball decor */
 .pokeball-container {
   position: fixed;
   bottom: -35vh;
