@@ -1,53 +1,30 @@
-const API_KEY = 'd619c5e3-acdd-403b-853e-5ea282d4a1f0';
 
-function sampleArray(arr, n) {
-  const result = [];
-  const copy = [...arr];
-  while (result.length < n && copy.length) {
-    const idx = Math.floor(Math.random() * copy.length);
-    result.push(copy.splice(idx, 1)[0]);
-  }
-  return result;
-}
-
-async function loadCarousel() {
+//CARRUSEL sacar cartas de la API
+async function cargarCartasPokemon() {
   const track = document.getElementById('carousel-track');
-  track.innerHTML = '';
 
   try {
-    // 1) Pedimos meta para saber totalCount
-    const metaRes = await fetch(
-      'https://api.pokemontcg.io/v2/cards?pageSize=1',
-      { headers: { 'X-Api-Key': API_KEY } }
-    );
-    const metaJson = await metaRes.json();
-    const total = metaJson.totalCount;
+    const response = await fetch('https://api.pokemontcg.io/v2/cards?pageSize=50');
+    const data = await response.json();
+    const cartas = data.data;
 
-    // 2) Definimos tamaño de página y página aleatoria
-    const pageSize = 50;
-    const pages = Math.ceil(total / pageSize);
-    const randomPage = Math.floor(Math.random() * pages) + 1;
+    // Elegir 6 al azar
+    const cartasAleatorias = cartas.sort(() => 0.5 - Math.random()).slice(0, 6);
 
-    // 3) Descargamos ese lote de cartas
-    const dataRes = await fetch(
-      `https://api.pokemontcg.io/v2/cards?pageSize=${pageSize}&page=${randomPage}`,
-      { headers: { 'X-Api-Key': API_KEY } }
-    );
-    const { data: cartas } = await dataRes.json();
+    // Duplicamos para bucle infinito
+    const cartasDobles = [...cartasAleatorias, ...cartasAleatorias];
 
-    // 4) Muestreamos 5 aleatorias
-    const seleccion = sampleArray(cartas, 5);
-
-    // 5) Inyectamos cada carta y luego duplicamos para el bucle
-    [...seleccion, ...seleccion].forEach(carta => {
+    // Inyectar en el DOM
+    cartasDobles.forEach(carta => {
       const div = document.createElement('div');
       div.className = 'carousel-item-custom';
       div.innerHTML = `<img src="${carta.images.large}" alt="${carta.name}">`;
       track.appendChild(div);
     });
-  } catch (e) {
-    console.error('Error cargando carrusel:', e);
+  } catch (error) {
+    console.error('Error al cargar cartas Pokémon:', error);
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadCarousel);
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', cargarCartasPokemon);
