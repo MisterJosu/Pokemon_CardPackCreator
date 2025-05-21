@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pag 404</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #cccccc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .panel {
+      background-color: #2d2d2d;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .panel::before, .panel::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: rgba(0,0,0,0.1);
+      transform: rotate(25deg);
+      top: -50%;
+      left: -50%;
+    }
+    .error-content {
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      max-width: 1200px;
+      padding: 2rem;
+    }
+    .error-text {
+      color: #fff;
+      max-width: 50%;
+    }
+    .error-text h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .error-text p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+    .btn-home {
+      background-color: #000;
+      color: #fff;
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .btn-home:hover {
+      background-color: #444;
+    }
+    .error-image img {
+      max-height: 600px;
+      width: auto;
+    }
+    @media (max-width: 992px) {
+      .error-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .error-text, .error-image {
+        max-width: 100%;
+      }
+      .error-image {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="error-content">
+      <div class="error-text">
+        <h1>Pag 404</h1>
+        <p>An error has ocurred</p>
+        <a href="/index.html" class="btn-home">Go back to HOME</a>
+      </div>
+      <div class="error-image">
+        <img src="media\xwq8eplr6bs81.jpg" alt="Gengar">
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokemon Booster Pack Creator</title>
+
+  <!-- CSS Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom CSS (must come after Bootstrap) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Fuente Jaro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- MENU ARRIBA -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a href="index.html"      class="nav-link capsule-button">INICIO</a></li>
+          <li class="nav-item"><a href="createPack.html" class="nav-link capsule-button">ESCOGER PACK</a></li>
+          <li class="nav-item"><a href="pag404.html"     class="nav-link capsule-button">BARAJA</a></li>
+          <li class="nav-item"><a href="pag404.html"     class="nav-link capsule-button">TIENDA</a></li>
+          <li class="nav-item"><a href="pag404.html"     class="nav-link capsule-button">CONTACTO</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Espacio para navbar fija -->
+  <div class="spacer-nav"></div>
+
+  <!-- INICIO -->
+  <header class="text-center my-5">
+    <div class="pokemon-logo-container">
+      <img src="media/Logo_Pokémon_Trading_Card_Game.png"
+           alt="Logo de Pokémon"
+           style="max-width:500px; height:auto;">
+    </div>
+    <h1>BOOSTER PACK CREATOR</h1>
+    <p>
+      ¡Bienvenidos entrenadores Pokémon! Preparaos para ampliar vuestra colección con este creador
+      de paquetes personalizados. Simplemente haz clic en el botón de abajo para empezar.
+    </p>
+  </header>
+
+  <!-- CARRUSEL -->
+  <div class="container my-5">
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carousel-track">
+        <!-- js/script.js inyectará aquí las cartas -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón GO! centrado -->
+  <div class="text-center my-4">
+    <a href="createPack.html" class="btn btn-dark btn-lg px-5">¡IR!</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3>Redes sociales</h3>
+        <div class="d-flex gap-3">
+          <a href="https://www.youtube.com/nintendo" target="_blank">Youtube</a>
+          <a href="https://x.com/Nintendo" target="_blank">Twitter</a>
+          <a href="https://www.instagram.com/nintendoes/" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="image-container">
+          <img src="media/Logo_Pokémon_Trading_Card_Game.png" alt="Logo Pokémon">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Pokéball decorativa -->
+  <div class="pokeball-container">
+    <img src="media/pokeball.png" alt="Pokéball">
+  </div>
+
+  <!-- JS de Bootstrap y script del carrusel -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
