@@ -1,13 +1,11 @@
 const API_KEY = "d619c5e3-acdd-403b-853e-5ea282d4a1f0";
 
+// Toma n elementos aleatorios de un array
 function sampleArray(arr, n) {
-  const result = [];
-  const copy = [...arr];
-  while (result.length < n && copy.length) {
-    const idx = Math.floor(Math.random() * copy.length);
-    result.push(copy.splice(idx, 1)[0]);
-  }
-  return result;
+  const copy = arr.slice();
+  return Array.from({length: n}, () =>
+    copy.splice(Math.floor(Math.random() * copy.length), 1)[0]
+  );
 }
 
 async function fetchPack() {
@@ -15,10 +13,10 @@ async function fetchPack() {
   const loader = document.getElementById("loader");
   const container = document.getElementById("card-container");
 
-  // Desactivar boton y mostrar loader
+  // Feedback UI
   btn.disabled = true;
   loader.style.display = "block";
-  container.innerHTML = "";
+  container.innerHTML = ""; // limpia
 
   const countsMap = {
     original: { common: 4, uncommon: 3, holo: 3 },
@@ -30,47 +28,52 @@ async function fetchPack() {
   const counts = countsMap[packType] || countsMap.original;
 
   try {
+    // 1) totalCount
     const metaRes = await fetch(
       "https://api.pokemontcg.io/v2/cards?pageSize=1",
-      { headers: { "X-Api-Key": API_KEY } }
+      { headers: {"X-Api-Key": API_KEY} }
     );
     const { totalCount } = await metaRes.json();
+
+    // 2) página aleatoria
     const pageSize = 100;
     const pages = Math.ceil(totalCount / pageSize);
     const randomPage = Math.floor(Math.random() * pages) + 1;
-
     const dataRes = await fetch(
       `https://api.pokemontcg.io/v2/cards?pageSize=${pageSize}&page=${randomPage}`,
-      { headers: { "X-Api-Key": API_KEY } }
+      { headers: {"X-Api-Key": API_KEY} }
     );
     const { data: allCards } = await dataRes.json();
 
+    // 3) filtra por rareza
     const commons   = allCards.filter(c => c.rarity === "Common");
     const uncommons = allCards.filter(c => c.rarity === "Uncommon");
     const holos     = allCards.filter(c => c.rarity && c.rarity.includes("Holo"));
 
+    // 4) crea pack
     const pack = [
       ...sampleArray(commons,   counts.common),
       ...sampleArray(uncommons, counts.uncommon),
       ...sampleArray(holos,     counts.holo)
     ];
 
+    // 5) renderiza las cartas en GRID
     pack.forEach((card, i) => {
-      if (i === counts.common + counts.uncommon) {
-        const br = document.createElement("div");
-        br.className = "w-100";
-        container.appendChild(br);
-      }
-      const col = document.createElement("div");
-      col.className = "col-6 col-md-2 text-center mb-4";
-      col.innerHTML = `
-        <div class="card shadow-sm">
-          <img src="${card.images.small}" class="card-img-top" alt="${card.name}">
-          <div class="card-body p-2">
-            <p class="mb-0">${card.name}</p>
-          </div>
+      const wrapper = document.createElement("div");
+      wrapper.className = "card-wrapper";
+
+      const cardEl = document.createElement("div");
+      cardEl.className = "card shadow-sm fade-in-up";
+      cardEl.style.animationDelay = `${0.1 * i}s`;
+
+      cardEl.innerHTML = `
+        <img src="${card.images.small}" class="card-img-top" alt="${card.name}">
+        <div class="card-body p-2 text-center">
+          <p class="mb-0">${card.name}</p>
         </div>`;
-      container.appendChild(col);
+
+      wrapper.appendChild(cardEl);
+      container.appendChild(wrapper);
     });
 
   } catch (err) {

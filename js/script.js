@@ -1,30 +1,30 @@
-
-//CARRUSEL sacar cartas de la API
+// CARGA Y ANIMA ÍTEMS DEL CARRUSEL
 async function cargarCartasPokemon() {
   const track = document.getElementById('carousel-track');
+  track.innerHTML = ''; // limpia antes de recargar
 
   try {
-    const response = await fetch('https://api.pokemontcg.io/v2/cards?pageSize=50');
-    const data = await response.json();
+    const res = await fetch('https://api.pokemontcg.io/v2/cards?pageSize=50');
+    const data = await res.json();
     const cartas = data.data;
 
-    // Elegir 6 al azar
-    const cartasAleatorias = cartas.sort(() => 0.5 - Math.random()).slice(0, 6);
+    // Selecciona 6 cartas al azar
+    const aleatorias = cartas.sort(() => 0.5 - Math.random()).slice(0, 6);
+    // Duplica para bucle infinito
+    const dobles = [...aleatorias, ...aleatorias];
 
-    // Duplicamos para bucle infinito
-    const cartasDobles = [...cartasAleatorias, ...cartasAleatorias];
-
-    // Inyectar en el DOM
-    cartasDobles.forEach(carta => {
+    dobles.forEach((carta, i) => {
       const div = document.createElement('div');
-      div.className = 'carousel-item-custom';
+      div.className = 'carousel-item-custom fade-in-up';
+      // Delay escalonado: 0.1s * índice
+      div.style.animationDelay = `${0.1 * i}s`;
       div.innerHTML = `<img src="${carta.images.large}" alt="${carta.name}">`;
       track.appendChild(div);
     });
-  } catch (error) {
-    console.error('Error al cargar cartas Pokémon:', error);
+  } catch (err) {
+    console.error('Error al cargar cartas Pokémon:', err);
   }
 }
 
-// Ejecutar cuando el DOM esté listo
+// Inicializa al cargar DOM
 document.addEventListener('DOMContentLoaded', cargarCartasPokemon);

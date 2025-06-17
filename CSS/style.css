@@ -10,7 +10,8 @@
 body {
   font-family: 'Jaro', sans-serif;
   font-size: 1.5rem;
-  background-image: linear-gradient(135deg,
+  background-image: linear-gradient(
+      135deg,
       #E53C24 0%,
       #E53C24 20%,
       #F4523B 20%,
@@ -19,14 +20,13 @@ body {
       #E53C24 85%,
       #e0f7fa 85%,
       #e0f7fa 100%
-  );
+    );
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #000;
 }
 
-
-
+/* Navbar */
 .navbar {
   background-color: transparent !important;
   padding: 1rem 2rem;
@@ -63,57 +63,13 @@ body {
   height: 80px;
 }
 
+/* Choose pack section */
 #choose-pack {
   padding: 4rem 0;
 }
-#choose-pack h2 {
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 2rem;
-}
-#choose-pack label {
-  color: #fff;
-  font-size: 1.1rem;
-}
-#choose-pack .form-select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  background-color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-}
-#choose-pack .btn-dark {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.75rem 2rem;
-  text-transform: uppercase;
-  font-size: 1.25rem;
-}
+/* …tus estilos de esa sección… */
 
-.pokemon-logo-container {
-  z-index: 2;
-  
-}
-
-.pokemon-logo-container img{
-  max-width: 100%;
-  height: auto;
-}
-
-h1 {
-  color: #fff;
-  font-size: 5rem;
-  z-index: 2;
-}
-p {
-  color: #000;
-  font-size: 1.5rem;
-  z-index: 2;
-}
-
+/* Pokéball fondo */
 .pokeball-container {
   position: fixed;
   bottom: -35vh;
@@ -130,86 +86,75 @@ p {
   opacity: 0.3;
 }
 
-/* Carousel */
-/* .carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
-}
-.carousel-track {
-  display: flex;
-  width: calc(400px * 10 + 1rem * 9);
-  gap: 1rem;
-  animation: scroll-left 30s linear infinite;
-}
-.carousel-item-custom {
-  flex: 0 0 auto;
-  width: 400px;
-}
-.carousel-item-custom img {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@media (max-width: 992px) {
-  .carousel-item-custom { width: 300px; }
-}
-@media (max-width: 768px) {
-  .carousel-item-custom { width: 100%; }
-} */
- 
+/* Carousel (home) */
 .carousel-wrapper {
   position: relative;
-  width: 100%;
-  height: auto;
+  width: calc(100% + 2rem);
+  margin: 0 -1rem;
+  overflow: hidden;
+  min-height: 500px;
 }
-
 .carousel-track {
   display: flex;
   gap: 1rem;
   animation: scroll-carrusel 30s linear infinite;
   will-change: transform;
 }
-
 .carousel-item-custom {
   flex: 0 0 auto;
-  width: 30%; /* Por defecto muestra ~3 cartas */
+  width: 25%;
+  opacity: 0;
+  transform: translateY(30px);
 }
-
 .carousel-item-custom img {
   width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
-/* Responsivo */
-@media (max-width: 992px) {
-  .carousel-item-custom {
-    width: 45%; /* 2 cartas en tablet */
-  }
-}
-
-@media (max-width: 576px) {
-  .carousel-item-custom {
-    width: 90%; /* 1 carta en móvil */
-  }
-}
-
-/* Animación para loop infinito */
 @keyframes scroll-carrusel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
+/* Fade-in-up animation */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  60% { opacity: 1; transform: translateY(-10px); }
+  100% { opacity: 100; transform: translateY(0); }
+}
+.card.fade-in-up,
+.carousel-item-custom.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* Layout para create-pack */
+body.create-pack #card-container {
+  display: grid;
+  /* 5 columnas mínimo 200px, máximo 1fr */
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  padding: 1rem 0;
+}
+
+/* Ajuste de ancho de cada carta */
+body.create-pack #card-container .card-wrapper {
+  width: 100%;
+  max-width: 220px;  /* antes eran ~180px, ahora un poco más anchas */
+}
+
+/* Responsive: 3 col en tablet, 2 col en móvil */
+@media (max-width: 992px) {
+  body.create-pack #card-container {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+}
+@media (max-width: 576px) {
+  body.create-pack #card-container {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
 
 /* Footer */
 footer {
@@ -222,6 +167,7 @@ footer {
   width: 100%;
   box-sizing: border-box;
 }
+
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -261,4 +207,41 @@ footer {
 
 #packOptions .form-check-label {
   color: #000 !important;
+}
+
+/* Modal detalle: layout horizontal en md+ */
+.modal-body .detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* En pantallas medianas/anchas, fila en lugar de columna */
+@media (min-width: 768px) {
+  .modal-body .detail-container {
+    flex-direction: row;
+    align-items: start;
+  }
+}
+
+/* Imagen dentro del detalle */
+.modal-body .detail-container img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Texto de estadísticas al lado */
+.modal-body .detail-text {
+  flex: 1;
+  font-family: 'Jaro', sans-serif;
+  font-size: 1rem;
+  color: #000;
+}
+
+/* Botones capsule en modal también */
+.modal-content .capsule-button {
+  padding: 0.25rem 1rem;
+  font-size: 0.9rem;
 }
